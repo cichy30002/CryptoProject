@@ -2,8 +2,10 @@
 #include "NonCryptoCurrency.h"
 #include "CryptoCurrency.h"
 #include "NonCryptoWallet.h"
+#include "CryptoWallet.h"
 
-int main() {
+void test()
+{
     NonCryptoCurrency *euro = new NonCryptoCurrency(10, 1.0, "Euro");
     std::cout<<euro->getName()<<": "<<euro->getAmount()<<"\n";
     euro->Add(12);
@@ -26,5 +28,21 @@ int main() {
 
     NonCryptoWallet *normalWallet = new NonCryptoWallet(firstWallet, "Kuba");
     std::cout<<normalWallet->showWealth();
+
+    CryptoCurrency *ethereum = new CryptoCurrency(12, 1.1, "Ethereum", "Distributed computing");
+    CryptoCurrency *tether = new CryptoCurrency(30, 0.5, "Tether", "stablecoin");
+    std::vector<Valuable*> secondWallet;
+    secondWallet.push_back(bitcoin);
+    secondWallet.push_back(ethereum);
+    secondWallet.push_back(tether);
+
+
+    CryptoWallet *magicWallet = new CryptoWallet(secondWallet, 123, 69420);
+    std::cout<<magicWallet->listAllCoins();
+}
+int main() {
+
+    test();
+
     return 0;
 }

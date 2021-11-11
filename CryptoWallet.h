@@ -11,6 +11,8 @@
 
 class CryptoWallet : public Stash{
 public:
+    CryptoWallet(const std::vector<Valuable *> &listOfCurrencies, int publicKey, int privateKey);
+
     std::string listAllCoins();
     int publicKey;
 private:
