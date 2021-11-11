@@ -5,12 +5,15 @@
 #ifndef CRYPTOPROJECT_STASH_H
 #define CRYPTOPROJECT_STASH_H
 
+#include <vector>
 #include "Valuable.h"
 class Stash {
 public:
-    Valuable* getCurrency();
+    Stash(const std::vector<Valuable*> &listOfCurrencies);
+
+    std::vector<Valuable*> getCurrency();
 private:
-    Valuable* listOfCurrences;
+    std::vector<Valuable*> listOfCurrencies;
 };
 
 

@@ -1,6 +1,8 @@
 #include <iostream>
 #include "NonCryptoCurrency.h"
 #include "CryptoCurrency.h"
+#include "NonCryptoWallet.h"
+
 int main() {
     NonCryptoCurrency *euro = new NonCryptoCurrency(10, 1.0, "Euro");
     std::cout<<euro->getName()<<": "<<euro->getAmount()<<"\n";
@@ -17,5 +19,12 @@ int main() {
     bitcoin->toString();
     std::cout<<euro->getName()<<": "<<euro->getAmount()<<"  worth: "<<euro->getAmount()*euro->getExchangeRate()<<"\n";
 
+    NonCryptoCurrency *zloty = new NonCryptoCurrency(10, 0.2, "PLN");
+    std::vector<Valuable*> firstWallet;
+    firstWallet.push_back(euro);
+    firstWallet.push_back(zloty);
+
+    NonCryptoWallet *normalWallet = new NonCryptoWallet(firstWallet, "Kuba");
+    std::cout<<normalWallet->showWealth();
     return 0;
 }

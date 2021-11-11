@@ -11,9 +11,11 @@
 
 class NonCryptoWallet : public Stash{
 public:
+    NonCryptoWallet(const std::vector<Valuable*> &listOfCurrencies, const std::string &owner);
+
     std::string showWealth();
 private:
-    std::string name;
+    std::string owner;
 };
 
 
