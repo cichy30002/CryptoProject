@@ -4,7 +4,10 @@
 
 #include "Valuable.h"
 
-Valuable::Valuable(int amount, float exchangeRate) {
+std::string Valuable::getName()  const{
+    return name;
+}
+Valuable::Valuable(float amount, float exchangeRate, const std::string &name) : name(name){
     setAmount(amount);
     setExchangeRate(exchangeRate);
 }
@@ -18,11 +21,11 @@ float Valuable::getExchangeRate() {
     return exchangeRate;
 }
 
-void Valuable::setAmount(int newAmount) {
+void Valuable::setAmount(float newAmount) {
     //error handling
     amount = newAmount;
 }
 
-int Valuable::getAmount() {
+float Valuable::getAmount() {
     return amount;
 }

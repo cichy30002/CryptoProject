@@ -11,14 +11,12 @@
 
 class NonCryptoCurrency : public Valuable{
 public:
-    std::string getName() const;
-    void Add(int addAmount);
-    void Take(int takeAmount);
 
-    NonCryptoCurrency(int amount, float exchangeRate, const std::string &name);
+    void Add(float addAmount);
+    void Take(float takeAmount);
 
-private:
-     std::string name;
+    NonCryptoCurrency(float amount, float exchangeRate, const std::string &name);
+
 };
 
 

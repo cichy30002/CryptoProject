@@ -8,16 +8,21 @@
 
 #include <string>
 #include "Printable.h"
+#include "NonCryptoCurrency.h"
 
 class CryptoCurrency : public Printable{
 public:
-    float ProbabilityBuy;
-    float ProbabilitySell;
-    void sell();
-    void buy();
+    float probabilityBuy;
+    float probabilitySell;
+
+    CryptoCurrency(float amount, float exchangeRate, const std::string &name, const std::string &type);
+
+    void sell(float amount, NonCryptoCurrency *currency);
+    void buy(float amount, NonCryptoCurrency *currency);
     void trade();
+    void setProbabilities(float buy, float sell);
+
 private:
-    std::string name;
     std::string type;
 };
 

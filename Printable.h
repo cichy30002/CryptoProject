@@ -10,6 +10,8 @@
 
 class Printable: public Valuable{
 public:
+    Printable(float amount, float exchangeRate, const std::string &name);
+
     void toString();
 };
 

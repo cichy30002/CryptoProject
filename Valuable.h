@@ -6,15 +6,19 @@
 #define CRYPTO_VALUEABLE_H
 
 
+#include <string>
+
 class Valuable {
 public:
-    int getAmount();
-    void setAmount(int newAmount);
+    std::string getName() const;
+    float getAmount();
+    void setAmount(float newAmount);
     float getExchangeRate();
     void setExchangeRate(float newExchangeRate);
-    Valuable(int amount, float exchangeRate);
+    Valuable(float amount, float exchangeRate, const std::string &name);
 private:
-    int amount;
+    std::string name;
+    float amount;
     float exchangeRate;
 };
 
