@@ -6,12 +6,13 @@
 #define CRYPTO_VALUEABLE_H
 
 
-class Valueable {
+class Valuable {
 public:
     int getAmount();
-    void setAmount(int amount);
+    void setAmount(int newAmount);
     float getExchangeRate();
-    void setExchangeRate(float exchangeRate);
+    void setExchangeRate(float newExchangeRate);
+    Valuable(int amount, float exchangeRate);
 private:
     int amount;
     float exchangeRate;

@@ -6,6 +6,8 @@
 #define CRYPTO_PRINTABLE_H
 
 
+#include "Valuable.h"
+
 class Printable: public Valuable{
 public:
     void toString();

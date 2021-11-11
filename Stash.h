@@ -5,12 +5,12 @@
 #ifndef CRYPTOPROJECT_STASH_H
 #define CRYPTOPROJECT_STASH_H
 
-
+#include "Valuable.h"
 class Stash {
 public:
-    Valueable[] getCurrency();
+    Valuable* getCurrency();
 private:
-    Valueable[] listOfCurrences;
+    Valuable* listOfCurrences;
 };
 
 

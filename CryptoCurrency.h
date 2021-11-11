@@ -6,6 +6,9 @@
 #define CRYPTOPROJECT_CRYPTOCURRENCY_H
 
 
+#include <string>
+#include "Printable.h"
+
 class CryptoCurrency : public Printable{
 public:
     float ProbabilityBuy;
@@ -14,8 +17,8 @@ public:
     void buy();
     void trade();
 private:
-    string name;
-    string type;
+    std::string name;
+    std::string type;
 };
 
 

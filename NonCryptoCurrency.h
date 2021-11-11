@@ -6,13 +6,19 @@
 #define CRYPTO_NONCRYPTOCURRENCY_H
 
 
-class NonCryptoCurrency : public Valueable{
+#include <string>
+#include "Valuable.h"
+
+class NonCryptoCurrency : public Valuable{
 public:
-    string getName();
-    void Add(int amount);
-    void Take(int amout);
+    std::string getName() const;
+    void Add(int addAmount);
+    void Take(int takeAmount);
+
+    NonCryptoCurrency(int amount, float exchangeRate, const std::string &name);
+
 private:
-    string name;
+     std::string name;
 };
 
 
