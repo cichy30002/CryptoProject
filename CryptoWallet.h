@@ -17,6 +17,7 @@ public:
     void printAllCoins() override;
     int publicKey;
     void setProbabilities(float pBuy,float pSell);
+    void tradeAll();
 private:
     int privateKey;
 };

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <random>
 #include "CryptoCurrency.h"
+#include "GameLoop.h"
 
 CryptoCurrency::CryptoCurrency(float amount, float exchangeRate, const std::string &name, const std::string &type) : Printable(
         amount, exchangeRate, name), type(type) {}
@@ -24,11 +25,11 @@ void CryptoCurrency::buy(float amount, NonCryptoCurrency *currency) {
 void CryptoCurrency::trade() {
     if(rand()/RAND_MAX < probabilityBuy)
     {
-
+        buy(1,GameLoop::mainNonCrypto);
     }
     else
     {
-
+        sell(1,GameLoop::mainNonCrypto);
     }
 }
 

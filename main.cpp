@@ -46,11 +46,14 @@ void test()
 }
 void testLoop()
 {
+
     std::vector<Valuable*> nonCryptoVec;
     std::vector<Valuable*> cryptoVec;
     Wallet *wallet = new Wallet(new NonCryptoWallet(nonCryptoVec,"anon"), new CryptoWallet(cryptoVec, 21, 37));
     GameLoop *gameLoop = new GameLoop(*wallet, 0);
     gameLoop->input();
+    gameLoop->wallet.printAllCoinsBoth();
+    gameLoop->trade();
     gameLoop->wallet.printAllCoinsBoth();
 }
 int main() {

@@ -30,5 +30,11 @@ void CryptoWallet::setProbabilities(float pBuy, float pSell) {
     }
 }
 
+void CryptoWallet::tradeAll() {
+    for (int i = 0; i < Stash::listOfCurrencies.size(); ++i) {
+        Stash::listOfCurrencies[i]->trade();
+    }
+}
+
 
 

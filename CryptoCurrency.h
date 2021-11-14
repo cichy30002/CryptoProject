@@ -19,7 +19,7 @@ public:
 
     void sell(float amount, NonCryptoCurrency *currency);
     void buy(float amount, NonCryptoCurrency *currency);
-    void trade();
+    void trade() override;
     void setProbabilities(float buy, float sell) override;
 
 private:

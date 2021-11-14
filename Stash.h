@@ -13,6 +13,7 @@ public:
     void addCurrency(Valuable* currency);
     std::vector<Valuable*> getCurrency();
     virtual void printAllCoins();
+
 protected:
     std::vector<Valuable*> listOfCurrencies;
 };

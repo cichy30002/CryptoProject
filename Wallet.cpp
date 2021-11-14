@@ -26,4 +26,8 @@ void Wallet::setProbabilities(float pBuy, float pSell) {
     cryptoWallet->setProbabilities(pBuy,pSell);
 }
 
+void Wallet::tradeAll() {
+    cryptoWallet->tradeAll();
+}
+
 

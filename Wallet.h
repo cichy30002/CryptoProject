@@ -19,7 +19,7 @@ public:
     Wallet& operator += (NonCryptoCurrency* nonCrypto);
     void printAllCoinsBoth();
     void setProbabilities(float pBuy,float pSell);
-
+    void tradeAll();
 private:
     NonCryptoWallet *nonCryptoWallet;
     CryptoWallet *cryptoWallet;

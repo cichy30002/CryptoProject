@@ -33,3 +33,7 @@ float Valuable::getAmount() {
 void Valuable::setProbabilities(float buy, float sell) {
 
 }
+
+void Valuable::trade() {
+
+}

@@ -13,8 +13,11 @@
 #define MAX_NAME_LENGTH 15
 #define MIN_NAME_LENGTH 3
 
+NonCryptoCurrency* GameLoop::mainNonCrypto = new NonCryptoCurrency(100, 1.0, "Euro");
+
 GameLoop::GameLoop(const Wallet &wallet, int numberOfCryptos) : wallet(wallet), numberOfCryptos(numberOfCryptos) {
     srand(time(NULL));
+
 }
 
 void GameLoop::input() {
@@ -32,10 +35,11 @@ void GameLoop::input() {
     float pBuy,pSell = 0;
     std::cin>>pBuy>>pSell;
     wallet.setProbabilities(pBuy,pSell);
+    wallet += mainNonCrypto;
 }
 
 void GameLoop::trade() {
-
+    wallet.tradeAll();
 }
 
 void GameLoop::output() {
@@ -64,3 +68,7 @@ std::string GameLoop::generateRandomName() {
     //result[0] = result[0] + ('A'-'a');
     return result;
 }
+
+
+
+

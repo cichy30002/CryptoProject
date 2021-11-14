@@ -10,8 +10,8 @@
 
 class GameLoop {
 public:
+    static NonCryptoCurrency* mainNonCrypto;
     Wallet wallet;
-
     GameLoop(const Wallet &wallet, int numberOfCryptos);
 
     void input();
@@ -19,6 +19,7 @@ public:
     void output();
 private:
     int numberOfCryptos;
+
     void generateNewCrypto();
     std::string generateRandomName();
 };
