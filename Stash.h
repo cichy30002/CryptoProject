@@ -10,9 +10,10 @@
 class Stash {
 public:
     Stash(const std::vector<Valuable*> &listOfCurrencies);
-
+    void addCurrency(Valuable* currency);
     std::vector<Valuable*> getCurrency();
-private:
+    virtual void printAllCoins();
+protected:
     std::vector<Valuable*> listOfCurrencies;
 };
 

@@ -2,11 +2,12 @@
 // Created by Cichy on 10.11.2021.
 //
 
+#include <iostream>
 #include "CryptoWallet.h"
 
 CryptoWallet::CryptoWallet(const std::vector<Valuable *> &listOfCurrencies, int publicKey, int privateKey) : Stash(listOfCurrencies), publicKey(publicKey), privateKey(privateKey) {}
 
-std::string CryptoWallet::listAllCoins() {
+void CryptoWallet::printAllCoins() {
     std::string result = "";
     result += "Cryptos in wallet with public key ";
     result += publicKey;
@@ -19,7 +20,15 @@ std::string CryptoWallet::listAllCoins() {
         result += std::to_string(Stash::getCurrency()[i]->getExchangeRate() * Stash::getCurrency()[i]->getAmount());
         result += "\n";
     }
-    return result;
+    std::cout<<result;
+    return;
 }
+
+void CryptoWallet::setProbabilities(float pBuy, float pSell) {
+    for (int i = 0; i < Stash::listOfCurrencies.size(); ++i) {
+        Stash::listOfCurrencies[i]->setProbabilities(pBuy,pSell);
+    }
+}
+
 
 

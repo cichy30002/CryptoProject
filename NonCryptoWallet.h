@@ -9,11 +9,11 @@
 #include <string>
 #include "Stash.h"
 
-class NonCryptoWallet : public Stash{
+class NonCryptoWallet : public virtual Stash{
 public:
     NonCryptoWallet(const std::vector<Valuable*> &listOfCurrencies, const std::string &owner);
 
-    std::string showWealth();
+    void printAllCoins();
 private:
     std::string owner;
 };

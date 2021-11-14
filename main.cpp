@@ -3,6 +3,8 @@
 #include "CryptoCurrency.h"
 #include "NonCryptoWallet.h"
 #include "CryptoWallet.h"
+#include "Wallet.h"
+#include "GameLoop.h"
 
 void test()
 {
@@ -27,7 +29,7 @@ void test()
     firstWallet.push_back(zloty);
 
     NonCryptoWallet *normalWallet = new NonCryptoWallet(firstWallet, "Kuba");
-    std::cout<<normalWallet->showWealth();
+    normalWallet->printAllCoins();
 
     CryptoCurrency *ethereum = new CryptoCurrency(12, 1.1, "Ethereum", "Distributed computing");
     CryptoCurrency *tether = new CryptoCurrency(30, 0.5, "Tether", "stablecoin");
@@ -38,11 +40,23 @@ void test()
 
 
     CryptoWallet *magicWallet = new CryptoWallet(secondWallet, 123, 69420);
-    std::cout<<magicWallet->listAllCoins();
+    magicWallet->printAllCoins();
+
+    Wallet *fullWallet = new Wallet(normalWallet, magicWallet);
+}
+void testLoop()
+{
+    std::vector<Valuable*> nonCryptoVec;
+    std::vector<Valuable*> cryptoVec;
+    Wallet *wallet = new Wallet(new NonCryptoWallet(nonCryptoVec,"anon"), new CryptoWallet(cryptoVec, 21, 37));
+    GameLoop *gameLoop = new GameLoop(*wallet, 0);
+    gameLoop->input();
+    gameLoop->wallet.printAllCoinsBoth();
 }
 int main() {
 
-    test();
+    //test();
+    testLoop();
 
     return 0;
 }

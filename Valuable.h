@@ -16,6 +16,7 @@ public:
     float getExchangeRate();
     void setExchangeRate(float newExchangeRate);
     Valuable(float amount, float exchangeRate, const std::string &name);
+    virtual void setProbabilities(float buy, float sell);
 private:
     std::string name;
     float amount;

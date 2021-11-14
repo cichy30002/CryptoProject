@@ -8,11 +8,21 @@
 
 #include "CryptoWallet.h"
 #include "NonCryptoWallet.h"
+#include "CryptoCurrency.h"
 
 class Wallet {
+public:
+
+    Wallet(NonCryptoWallet *nonCryptoWallet, CryptoWallet *cryptoWallet);
+
+    Wallet& operator += (CryptoCurrency* crypto);
+    Wallet& operator += (NonCryptoCurrency* nonCrypto);
+    void printAllCoinsBoth();
+    void setProbabilities(float pBuy,float pSell);
+
 private:
-    NonCryptoWallet nonCryptoWallet;
-    CryptoWallet cryptoWallet;
+    NonCryptoWallet *nonCryptoWallet;
+    CryptoWallet *cryptoWallet;
 };
 
 

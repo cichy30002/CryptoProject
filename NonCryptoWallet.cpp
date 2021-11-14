@@ -4,8 +4,9 @@
 
 #include "NonCryptoWallet.h"
 #include <string>
+#include <iostream>
 
-std::string NonCryptoWallet::showWealth() {
+void NonCryptoWallet::printAllCoins() {
     std::string result = "";
     result += "Mr. ";
     result += owner;
@@ -19,7 +20,8 @@ std::string NonCryptoWallet::showWealth() {
         result += std::to_string(Stash::getCurrency()[i]->getExchangeRate() * Stash::getCurrency()[i]->getAmount());
         result += "\n";
     }
-    return result;
+    std::cout<<result;
+    return;
 }
 
 NonCryptoWallet::NonCryptoWallet(const std::vector<Valuable*> &listOfCurrencies, const std::string &owner) : Stash(listOfCurrencies), owner(owner) {}

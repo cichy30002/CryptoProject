@@ -9,3 +9,11 @@ std::vector<Valuable*> Stash::getCurrency() {
 }
 
 Stash::Stash(const std::vector<Valuable*> &listOfCurrencies) : listOfCurrencies(listOfCurrencies) {}
+
+void Stash::addCurrency(Valuable* currency) {
+    listOfCurrencies.push_back(currency);
+}
+
+void Stash::printAllCoins() {
+
+}

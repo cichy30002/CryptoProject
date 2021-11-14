@@ -20,7 +20,7 @@ public:
     void sell(float amount, NonCryptoCurrency *currency);
     void buy(float amount, NonCryptoCurrency *currency);
     void trade();
-    void setProbabilities(float buy, float sell);
+    void setProbabilities(float buy, float sell) override;
 
 private:
     std::string type;

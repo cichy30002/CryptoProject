@@ -29,3 +29,7 @@ void Valuable::setAmount(float newAmount) {
 float Valuable::getAmount() {
     return amount;
 }
+
+void Valuable::setProbabilities(float buy, float sell) {
+
+}

@@ -8,13 +8,15 @@
 
 #include <string>
 #include "Stash.h"
+#include "CryptoCurrency.h"
 
-class CryptoWallet : public Stash{
+class CryptoWallet : public virtual Stash{
 public:
     CryptoWallet(const std::vector<Valuable *> &listOfCurrencies, int publicKey, int privateKey);
 
-    std::string listAllCoins();
+    void printAllCoins() override;
     int publicKey;
+    void setProbabilities(float pBuy,float pSell);
 private:
     int privateKey;
 };

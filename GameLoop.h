@@ -11,11 +11,16 @@
 class GameLoop {
 public:
     Wallet wallet;
-    void Input();
-    void Trade();
-    void Output();
+
+    GameLoop(const Wallet &wallet, int numberOfCryptos);
+
+    void input();
+    void trade();
+    void output();
 private:
     int numberOfCryptos;
+    void generateNewCrypto();
+    std::string generateRandomName();
 };
 
 
