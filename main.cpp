@@ -47,18 +47,32 @@ void test()
 }
 void mainLoop()
 {
-    std::vector<Valuable*> nonCryptoVec;
-    std::vector<Valuable*> cryptoVec;
-    Wallet *wallet = new Wallet(new NonCryptoWallet(nonCryptoVec,"anon"), new CryptoWallet(cryptoVec, 21, 37));
-    GameLoop *gameLoop = new GameLoop(*wallet, 0);
-    gameLoop->input();
+    GameLoop *gameLoop;
+    Wallet *wallet;
+    int errors = false;
+    do{
+        errors = false;
+        std::vector<Valuable*> nonCryptoVec;
+        std::vector<Valuable*> cryptoVec;
+        wallet = new Wallet(new NonCryptoWallet(nonCryptoVec,"anon"), new CryptoWallet(cryptoVec, 21, 37));
+        gameLoop = new GameLoop(*wallet, 0);
+
+             try {
+                 gameLoop->input();
+             }
+             catch (int x){
+                errors = true;
+                std::cout<<"Failed input process, restarting...\n";
+                 std::cin.clear();
+                 std::cin.ignore();
+             }
+     }while(errors);
     gameLoop->output();
     while(wallet->countCryptos()>0)
     {
         gameLoop->trade();
         gameLoop->output();
     }
-
 
 }
 int main() {

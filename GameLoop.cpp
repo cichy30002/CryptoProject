@@ -25,9 +25,16 @@ void GameLoop::input() {
 
     std::cout<<"Welcome \n";
     std::cout<<"Please enter number of cryptocurrencies you want to have in simulation: \n";
-    //error handling
-    std::cin>>numberOfCryptos;
 
+    std::cin>>numberOfCryptos;
+    if(std::cin.fail())
+    {
+        throw 1;
+    }
+    if(numberOfCryptos<1 || numberOfCryptos>30)
+    {
+        throw 2;
+    }
     for (int i = 0; i < numberOfCryptos; ++i) {
         generateNewCrypto();
     }
@@ -35,6 +42,14 @@ void GameLoop::input() {
     //error handling
     float pBuy,pSell = 0;
     std::cin>>pBuy>>pSell;
+    if(std::cin.fail())
+    {
+        throw 1;
+    }
+    if(pBuy>pSell || pBuy+pSell!=1 || pBuy>1 || pBuy<0 || pSell>1 || pSell<0)
+    {
+        throw 3;
+    }
     wallet.setProbabilities(pBuy,pSell);
     wallet += mainNonCrypto;
 }
