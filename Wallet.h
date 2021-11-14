@@ -20,6 +20,7 @@ public:
     void printAllCoinsBoth();
     void setProbabilities(float pBuy,float pSell);
     void tradeAll();
+    float countCryptos();
 private:
     NonCryptoWallet *nonCryptoWallet;
     CryptoWallet *cryptoWallet;

@@ -14,6 +14,7 @@
 #define MIN_NAME_LENGTH 3
 
 NonCryptoCurrency* GameLoop::mainNonCrypto = new NonCryptoCurrency(100, 1.0, "Euro");
+int GameLoop::tradeCounter = 0;
 
 GameLoop::GameLoop(const Wallet &wallet, int numberOfCryptos) : wallet(wallet), numberOfCryptos(numberOfCryptos) {
     srand(time(NULL));
@@ -30,7 +31,7 @@ void GameLoop::input() {
     for (int i = 0; i < numberOfCryptos; ++i) {
         generateNewCrypto();
     }
-    std::cout<<"Please enter pBuy and pSell cryptos (in range (0,1), pBuy > pSell and it must sum to 1)\n";
+    std::cout<<"Please enter pBuy and pSell cryptos (in range (0,1), pBuy < pSell and it must sum to 1)\n";
     //error handling
     float pBuy,pSell = 0;
     std::cin>>pBuy>>pSell;
@@ -39,11 +40,13 @@ void GameLoop::input() {
 }
 
 void GameLoop::trade() {
+    tradeCounter++;
+    std::cout<<"Trade operation #"<<tradeCounter<<"\n";
     wallet.tradeAll();
 }
 
 void GameLoop::output() {
-
+    wallet.printAllCoinsBoth();
 }
 
 void GameLoop::generateNewCrypto() {
@@ -65,7 +68,7 @@ std::string GameLoop::generateRandomName() {
         char tmp = 'a' + rand()%26;
         result += tmp;
     }
-    //result[0] = result[0] + ('A'-'a');
+    result[0] = result[0] + ('A'-'a');
     return result;
 }
 

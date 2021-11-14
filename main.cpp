@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "NonCryptoCurrency.h"
 #include "CryptoCurrency.h"
 #include "NonCryptoWallet.h"
@@ -44,22 +45,26 @@ void test()
 
     Wallet *fullWallet = new Wallet(normalWallet, magicWallet);
 }
-void testLoop()
+void mainLoop()
 {
-
     std::vector<Valuable*> nonCryptoVec;
     std::vector<Valuable*> cryptoVec;
     Wallet *wallet = new Wallet(new NonCryptoWallet(nonCryptoVec,"anon"), new CryptoWallet(cryptoVec, 21, 37));
     GameLoop *gameLoop = new GameLoop(*wallet, 0);
     gameLoop->input();
-    gameLoop->wallet.printAllCoinsBoth();
-    gameLoop->trade();
-    gameLoop->wallet.printAllCoinsBoth();
+    gameLoop->output();
+    while(wallet->countCryptos()>0)
+    {
+        gameLoop->trade();
+        gameLoop->output();
+    }
+
+
 }
 int main() {
 
     //test();
-    testLoop();
+    mainLoop();
 
     return 0;
 }

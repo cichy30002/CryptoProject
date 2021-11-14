@@ -11,6 +11,7 @@
 class GameLoop {
 public:
     static NonCryptoCurrency* mainNonCrypto;
+    static int tradeCounter;
     Wallet wallet;
     GameLoop(const Wallet &wallet, int numberOfCryptos);
 

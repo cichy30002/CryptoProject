@@ -18,6 +18,7 @@ public:
     int publicKey;
     void setProbabilities(float pBuy,float pSell);
     void tradeAll();
+    float countCryptos();
 private:
     int privateKey;
 };

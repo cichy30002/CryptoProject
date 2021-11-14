@@ -30,4 +30,8 @@ void Wallet::tradeAll() {
     cryptoWallet->tradeAll();
 }
 
+float Wallet::countCryptos() {
+    return cryptoWallet->countCryptos();
+}
+
 
